@@ -11,6 +11,6 @@ echo ;
 echo "Deleting Object $2 in Container $1";
 echo ;
 swift delete $1 $2
-sudo sshpass -p ubuntu ssh -o StrictHostKeyChecking=no stack@192.168.100.107 'bash -s' < deleteObject.sh $1 $2
-sudo sshpass -p ubuntu ssh -o StrictHostKeyChecking=no stack@192.168.100.105 'bash -s' < deleteObject.sh $1 $2
+sudo sshpass -p ubuntu ssh -o StrictHostKeyChecking=no stack@$3 'bash -s' < deleteObject.sh $1 $2
+sudo sshpass -p ubuntu ssh -o StrictHostKeyChecking=no stack@$4 'bash -s' < deleteObject.sh $1 $2
 fi

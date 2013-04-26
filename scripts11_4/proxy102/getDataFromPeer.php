@@ -1,7 +1,7 @@
 <?php
 if (!function_exists("ssh2_connect")) die("function ssh2_connect doesn't exist");
 // log in at server1.example.com on port 22
-if(!($con = ssh2_connect("192.168.100.107", 22))){
+if(!($con = ssh2_connect($fromPeer, 22))){
     echo "fail: unable to establish connection\n";
 } else {
     // try to authenticate with username root, password secretpassword
@@ -12,7 +12,7 @@ if(!($con = ssh2_connect("192.168.100.107", 22))){
         echo "okay: logged in...\n";
 
         // execute a command
-        if (!($stream = ssh2_exec($con, "sh testing.sh ".$p2p105." ".$container_name." ".$file_name))) {
+        if (!($stream = ssh2_exec($con, "sh testing.sh ".$p2p." ".$container_name." ".$file_name))) {
             echo "fail: unable to execute command\n";
         } else {
             // collect returning data from command
